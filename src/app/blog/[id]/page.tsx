@@ -7,7 +7,7 @@ import Image from "next/image";
 export default async function Blog({ params }: { params: { id: string } }) {
   
   try {
-    const res = await fetch(`https://blog-web-blond.vercel.app/api/posts`);
+    const res = await fetch(`http://localhost:3000/api/posts`);
 
     // Check if response is okay
     if (!res.ok) {
