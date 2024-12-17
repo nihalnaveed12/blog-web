@@ -40,8 +40,8 @@ export default async function Blog({ params }: { params: { id: string } }) {
         </div>
       </div>
     );
-  } catch (error:any) {
-    console.error("Failed to fetch posts:", error.message); // Log fetch error for debugging
+  } catch  {
+    console.error("Failed to fetch posts:"); // Log fetch error for debugging
     return <h1>Error fetching data. Please try again later.</h1>;
   }
 }
