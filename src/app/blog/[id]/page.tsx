@@ -2,14 +2,12 @@ import { Posts } from "@/components/blog";
 import Image from "next/image";
 
 // Use environment variable for production; fallback to localhost for development
-const baseURL = process.env.NEXT_PUBLIC_API_URL || 
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+
 
 export default async function Blog({ params }: { params: { id: string } }) {
-  console.log("Base URL:", baseURL); // Debugging the URL to ensure it's correct
-
+  
   try {
-    const res = await fetch(`${baseURL}/api/posts`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`);
 
     // Check if response is okay
     if (!res.ok) {

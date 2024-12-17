@@ -9,13 +9,12 @@ export interface Posts {
   content: string;
 }
 
-const baseURL = process.env.NEXT_PUBLIC_API_URL || 
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+
 
 
 
 export default async function Blog() {
-  const res = await fetch(`${baseURL}/api/posts`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`);
   const posts: Posts[] = await res.json();
 
   return (
