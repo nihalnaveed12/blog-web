@@ -10,7 +10,7 @@ export interface Posts {
 }
 
 export default async function Blog() {
-  const res = await fetch("http://localhost:3000/api/posts");
+  const res = await fetch("https://blog-web-lime-eta.vercel.app/api/posts");
   const posts: Posts[] = await res.json();
 
   return (

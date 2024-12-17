@@ -2,7 +2,7 @@ import { Posts } from "@/components/blog";
 import Image from "next/image";
 
 export default async function Blog({ params }: { params: { id: string } }) {
-  const res = await fetch("http://localhost:3000/api/posts");
+  const res = await fetch("https://blog-web-lime-eta.vercel.app/api/posts");
   const posts: Posts[] = await res.json();
 
   const post = posts.find((p) => p.id === Number(params.id));
