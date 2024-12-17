@@ -4,9 +4,9 @@ import Image from "next/image";
 
 
 
+
 export default async function Blog({ params }: { params: { id: string } }) {
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
-  const res = await fetch(`${API_URL}/api/posts`);
+  const res = await fetch(`/api/posts`);
   const posts: Posts[] = await res.json();
 
   const post = posts.find((p) => p.id === Number(params.id));

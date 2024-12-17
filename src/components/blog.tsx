@@ -12,9 +12,9 @@ export interface Posts {
 
 
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 export default async function Blog() {
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
-  const res = await fetch(`${API_URL}/api/posts`);
+  const res = await fetch(`/api/posts`);
   const posts: Posts[] = await res.json();
 
   return (
