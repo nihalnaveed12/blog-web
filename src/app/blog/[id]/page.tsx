@@ -1,15 +1,10 @@
 import { Posts } from "@/components/blog";
 import Image from "next/image";
 
-// Use environment variable for production; fallback to localhost for development
-
-
 export default async function Blog({ params }: { params: { id: string } }) {
-  
   try {
-    const res = await fetch(`http://localhost:3000/api/posts`);
+    const res = await fetch(`https://blog-web-blond.vercel.app/api/posts`);
 
-    // Check if response is okay
     if (!res.ok) {
       throw new Error(`HTTP error! Status: ${res.status}`);
     }
@@ -38,8 +33,8 @@ export default async function Blog({ params }: { params: { id: string } }) {
         </div>
       </div>
     );
-  } catch  {
-    console.error("Failed to fetch posts:"); // Log fetch error for debugging
+  } catch {
+    console.error("Failed to fetch posts:"); 
     return <h1>Error fetching data. Please try again later.</h1>;
   }
 }
