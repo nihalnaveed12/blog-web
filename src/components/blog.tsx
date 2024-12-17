@@ -9,9 +9,8 @@ export interface Posts {
   content: string;
 }
 
-const baseURL = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}` // Production URL on Vercel
-  : "http://localhost:3000"; // Fallback for development
+const baseURL = process.env.NEXT_PUBLIC_API_URL || 
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
 
 
 
