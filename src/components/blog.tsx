@@ -9,12 +9,14 @@ export interface Posts {
   content: string;
 }
 
-
+const baseURL = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}` // Production URL on Vercel
+  : "http://localhost:3000"; // Fallback for development
 
 
 
 export default async function Blog() {
-  const res = await fetch(`/api/posts`);
+  const res = await fetch(`${baseURL}/api/posts`);
   const posts: Posts[] = await res.json();
 
   return (

@@ -2,11 +2,13 @@ import { Posts } from "@/components/blog";
 import Image from "next/image";
 
 
-
+const baseURL = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}` // Production URL on Vercel
+  : "http://localhost:3000"; // Fallback for development
 
 
 export default async function Blog({ params }: { params: { id: string } }) {
-  const res = await fetch(`/api/posts`);
+  const res = await fetch(`${baseURL}/api/posts`);
   const posts: Posts[] = await res.json();
 
   const post = posts.find((p) => p.id === Number(params.id));
