@@ -9,8 +9,11 @@ export interface Posts {
   content: string;
 }
 
+
+
+
 export default async function Blog() {
-  const res = await fetch("https://blog-web-lime-eta.vercel.app/api/posts");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/posts`);
   const posts: Posts[] = await res.json();
 
   return (
