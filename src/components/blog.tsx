@@ -14,7 +14,7 @@ export interface Posts {
 
 
 export default async function Blog() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`);
+  const res = await fetch(`https://blog-web-blond.vercel.app/api/posts`);
   const posts: Posts[] = await res.json();
 
   return (
